@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  TouchableOpacity
-} from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 
 import DataCard from "./Components/DataCard";
 
@@ -67,19 +61,14 @@ export default class App extends Component {
           <Text style={styles.titleText}>Weather App</Text>
         </View>
         <View style={styles.searchRow}>
-          <View style={styles.inputRow}>
-            <TextInput
-              placeholder="Search for a zipcode"
-              style={styles.input}
-              onChangeText={cityText => this.setState({ cityText })}
-              value={this.state.cityText}
-            />
-          </View>
-          <View style={styles.buttonRow}>
-            <TouchableOpacity style={styles.button} onPress={this.handleQuery}>
-              <Text style={styles.buttonText}>Go</Text>
-            </TouchableOpacity>
-          </View>
+          <TextInput
+            placeholder="Search for a zipcode"
+            style={styles.input}
+            onChangeText={cityText => this.setState({ cityText })}
+            value={this.state.cityText}
+            returnKeyType="search"
+            onSubmitEditing={this.handleQuery}
+          />
         </View>
         <View style={styles.currentDisplay}>
           <Text style={styles.city}>{location}</Text>
